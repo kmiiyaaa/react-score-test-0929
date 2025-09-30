@@ -1,16 +1,22 @@
-function StudentItem() {
-    return(
-        <tr className="StudentItem">
-            <td>{name}</td>
-            <td>{math}</td>
-            <td>{eng}</td>
-            <td>{sci}</td>
-            <td>{avg}</td>
-            <td>
-                <button>삭제</button>
-            </td>
-        </tr>
-    );
+import "./StudentItem.css";
+
+function StudentItem({ student, onDelete }) {
+  function deleteStudent() {
+    onDelete(student.id);
+  }
+
+  return (
+    <tr className="StudentItem">
+      <td>{student.name}</td>
+      <td>{student.math}</td>
+      <td>{student.eng}</td>
+      <td>{student.sci}</td>
+      <td>{student.avg}</td>
+      <td>
+        <button onClick={() => onDelete(student.id)}>삭제</button>
+      </td>
+    </tr>
+  );
 }
 
 export default StudentItem;

@@ -1,44 +1,67 @@
 import { useState } from "react";
+import "./StudentInput.css";
 
-function StudentInput({onCreateStudent}) {  // props, 부모에게서 받아온것 {}
+function StudentInput({ onCreateStudent }) {
+  // props, 부모에게서 받아온것 {}
 
-    const [name, setName] = useState("");
-    const [math, setMath] = useState("");
-    const [eng, setEng] = useState("");
-    const [sci, setSci] = useState("");
+  const [name, setName] = useState("");
+  const [math, setMath] = useState("");
+  const [eng, setEng] = useState("");
+  const [sci, setSci] = useState("");
 
-    function onChangeName(e){  //타겟을 뽑아야하니까 ()안에 e
-        setName(e.target.value);
-    }
-     function onChangeMath(e){  
-        setMath(e.target.value);
-    }
-     function onChangeEng(e){  
-        setEng(e.target.value);
-    }
-     function onChangeSci(e){  
-        setSci(e.target.value);
-    }
+  function onChangeName(e) {
+    //타겟을 뽑아야하니까 ()안에 e
+    setName(e.target.value);
+  }
+  function onChangeMath(e) {
+    setMath(e.target.value);
+  }
+  function onChangeEng(e) {
+    setEng(e.target.value);
+  }
+  function onChangeSci(e) {
+    setSci(e.target.value);
+  }
 
-    function addStudent(name,math,eng,sci){
-        onCreateStudent(name,math,eng,sci); // 부모 App에서 받아온 함수 호출-> 부모 App에게 유저가 입력한 name,math,eng,sci를 전달
-        //값 전달 후 입력란 빈칸으로 초기화
-        setName(""); 
-        setMath("");
-        setEng("");
-        setSci("");
-    }
+  function addStudent() {
+    onCreateStudent(name, math, eng, sci); // 부모 App에서 받아온 함수 호출-> 부모 App에게 유저가 입력한 name,math,eng,sci를 전달
 
-    return( 
-        <div className="StudentInput">
-            <input type="text" value={name} placeholder="이름" onChange={onChangeName}></input>
-            <input type="number" value={math} placeholder="수학" onChange={onChangeMath}></input>
-            <input type="number" value={eng} placeholder="영어"onChange={onChangeEng}></input>
-            <input type="number" value={sci} placeholder="과학"onChange={onChangeSci}></input>
-            <button onClick={{addStudent}}>추가</button>
-        </div>
+    //값 전달 후 입력란 빈칸으로 초기화
+    setName("");
+    setMath("");
+    setEng("");
+    setSci("");
+  }
 
-    );
+  return (
+    <div className="StudentInput">
+      <input
+        type="text"
+        value={name}
+        placeholder="이름"
+        onChange={onChangeName}
+      ></input>
+      <input
+        type="number"
+        value={math}
+        placeholder="수학"
+        onChange={onChangeMath}
+      ></input>
+      <input
+        type="number"
+        value={eng}
+        placeholder="영어"
+        onChange={onChangeEng}
+      ></input>
+      <input
+        type="number"
+        value={sci}
+        placeholder="과학"
+        onChange={onChangeSci}
+      ></input>
+      <button onClick={{ addStudent }}>추가</button>
+    </div>
+  );
 }
 
 export default StudentInput;
