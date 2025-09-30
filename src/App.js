@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import "./App.css";
 import StudentInput from "./component/StudentInput";
 import StudentList from "./component/StudentList";
+import TestComp from "./component/TestComp";
 
 function App() {
   const [students, setStudents] = useState([]);
@@ -45,6 +46,8 @@ function App() {
       <StudentInput onCreateStudent={onCreateStudent} />
       <StudentList students={students} />{" "}
       {/* StudentList에 students 저장된값 던져주기위해 */}
+      <hr />
+      <TestComp />
     </div>
   );
 }
